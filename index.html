@@ -1118,6 +1118,127 @@
             .photo-intro > .body-text { max-width:none; justify-self:stretch; text-align:left; }
         }
 
+
+        /* ─── PROJECT DISCOVERABILITY ─── */
+        .project-link-block { display:flex; flex-direction:column; gap:8px; }
+        .project-hint { margin:0; padding-left:2px; color:var(--muted); font-size:.78rem; line-height:1.35; letter-spacing:.02em; }
+        .case-study-cta {
+            display:flex; align-items:center; justify-content:flex-end; width:100%; max-width:600px;
+            margin-top:10px; padding:13px 2px 0; border:0; border-top:1px solid rgba(0,224,255,.18);
+            background:transparent; color:var(--accent); cursor:pointer; text-align:right;
+            font:600 .72rem 'Inter',sans-serif; letter-spacing:.15em; text-transform:uppercase;
+            transition:color .25s ease, border-color .25s ease;
+        }
+        .case-study-cta:hover { color:var(--text); border-top-color:var(--accent); }
+        @media (max-width:768px) {
+            .project-hint { font-size:.72rem; }
+            .case-study-cta { justify-content:flex-start; text-align:left; }
+        }
+
+
+        /* ─── PROJECTS HEADING HIERARCHY + PHOTO CAPTION SCALE ─── */
+        .projects-heading { margin-bottom:var(--s48); }
+        .projects-heading .section-title { margin-bottom:0; }
+        .photo-bento-nine .bento-image span { font-size:.88rem; line-height:1.18; }
+        @media (max-width:768px) {
+            .photo-bento-nine .bento-image span { font-size:.78rem; }
+        }
+
+
+        /* ─── DELIBERATE PROJECT SELECTION ─── */
+        .project-interaction-note { margin:0 0 var(--s16); color:var(--muted); font-size:.76rem; line-height:1.4; max-width:34ch; }
+        .text-stagger-hover {
+            appearance:none; border:0; padding:0; background:transparent; text-align:left; font:inherit; color:inherit;
+        }
+        .text-stagger-hover.selected { color:var(--accent); text-shadow:0 0 10px var(--glow); }
+        .text-stagger-hover.selected::after { content:'Selected'; display:block; margin-top:7px; color:var(--accent); font:600 .62rem 'Inter',sans-serif; letter-spacing:.15em; text-transform:uppercase; opacity:.78; }
+        .case-study-cta:focus-visible, .text-stagger-hover:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+        @media (max-width:768px) { .project-interaction-note { font-size:.7rem; } }
+
+
+        /* ─── SIMPLE HOVER PROJECT SELECTOR ─── */
+        .hover-slider-section { padding:var(--s48) 0 var(--s64); }
+        .projects-heading { margin-bottom:var(--s24); }
+        .projects-heading .label { margin-bottom:var(--s8); }
+        .projects-heading .section-title { margin-bottom:0; }
+        .text-stagger-container { gap:var(--s20); }
+        .text-stagger-hover {
+            appearance:none; border:0; padding:0; background:transparent; text-align:left; font:inherit; color:inherit;
+            font-size:clamp(2.4rem,4.2vw,4.2rem); line-height:1; cursor:pointer;
+        }
+        .project-title-row { display:flex; align-items:center; gap:16px; min-height:4.5rem; }
+        .project-case-study {
+            display:none; flex:0 0 auto; align-items:center; border:1px solid rgba(0,224,255,.38); border-radius:999px;
+            padding:10px 14px; background:rgba(0,224,255,.08); color:var(--accent); cursor:pointer;
+            font:600 .68rem 'Inter',sans-serif; letter-spacing:.1em; text-transform:uppercase;
+            white-space:nowrap; transition:background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+        }
+        .project-link-block.active .project-case-study { display:inline-flex; }
+        .project-case-study:hover { background:var(--accent); border-color:var(--accent); color:var(--bg); transform:translateY(-2px); }
+        .project-case-study:focus-visible, .text-stagger-hover:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+        .project-interaction-note, .case-study-cta { display:none !important; }
+        @media (max-width:768px) {
+            .hover-slider-section { padding:var(--s32) 0 var(--s48); }
+            .project-title-row { align-items:flex-start; flex-direction:column; gap:10px; min-height:0; }
+            .project-case-study { display:none !important; }
+            .project-link-block.active .project-case-study { display:inline-flex !important; }
+        }
+
+
+        /* ─── REFERENCE PROJECT SCALE + SIMPLE CTA LINE ─── */
+        .text-stagger-hover { font-size:clamp(2rem,3vw,3rem); font-weight:700; letter-spacing:-.02em; }
+        .project-case-study {
+            display:none; flex:0 0 auto; align-items:center; border:0; border-bottom:1px solid var(--accent);
+            border-radius:0; padding:5px 0 3px; background:transparent; color:var(--accent); cursor:pointer;
+            font:600 .68rem 'Inter',sans-serif; letter-spacing:.1em; text-transform:uppercase;
+            white-space:nowrap; transition:color .25s ease, border-color .25s ease, opacity .25s ease;
+        }
+        .project-link-block.active .project-case-study { display:inline-flex; }
+        .project-case-study:hover { color:var(--text); border-bottom-color:var(--text); opacity:.9; transform:none; }
+        .project-case-study:focus-visible, .text-stagger-hover:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
+        @media (max-width:768px) {
+            .text-stagger-hover { font-size:clamp(1.8rem,8vw,2.45rem); }
+        }
+
+
+        /* ─── PROJECT TITLE / CTA ALIGNMENT REFINEMENT ─── */
+        #projects .text-stagger-container { width:100%; }
+        #projects .project-title-row {
+            display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center;
+            width:100%; gap:20px; min-height:4.2rem;
+        }
+        #projects .text-stagger-hover {
+            min-width:0; white-space:nowrap; font-size:clamp(1.8rem,2.6vw,2.8rem);
+        }
+        #projects .project-link-block.active .text-stagger-hover {
+            font-size:clamp(1.7rem,2.4vw,2.6rem);
+        }
+        #projects .project-case-study {
+            justify-self:end; color:var(--accent); border-bottom-color:var(--accent);
+            transition:transform .2s ease;
+        }
+        #projects .project-case-study:hover {
+            color:var(--accent); border-bottom-color:var(--accent); opacity:1; transform:translateY(-2px);
+        }
+        @media (max-width:768px) {
+            #projects .project-title-row { display:flex; flex-direction:column; align-items:flex-end; gap:8px; min-height:0; }
+            #projects .text-stagger-hover { width:100%; font-size:clamp(1.25rem,5.8vw,2rem); }
+            #projects .project-link-block.active .text-stagger-hover { font-size:clamp(1.2rem,5.5vw,1.9rem); }
+            #projects .project-case-study { justify-self:auto; }
+        }
+
+
+        /* ─── NEUTRAL CASE-STUDY CTA HOVER ─── */
+        #projects .project-case-study {
+            color:var(--accent); border-bottom-color:var(--accent); background:transparent;
+            transition:transform .2s ease;
+        }
+        #projects .project-case-study:hover,
+        #projects .project-case-study:focus-visible {
+            color:var(--accent); border-bottom-color:var(--accent); opacity:1; background:transparent;
+            transform:translateY(-2px);
+        }
+
     </style>
 </head>
 <body>
@@ -1309,17 +1430,37 @@
 
         <section id="projects" class="hover-slider-section">
             <div class="container">
-                <h3 class="hover-slider-header">/ Projects</h3>
+                <div class="projects-heading">
+                    <p class="label reveal-fade">Explore the thinking behind the project</p>
+                    <h2 class="section-title reveal-fade">Projects</h2>
+                </div>
                 <div class="hover-slider-content">
                     <div class="text-stagger-container">
-                        <span class="text-stagger-hover" data-slide-index="0" onclick="showDetailPage('apple-music')">Apple Music Case Study</span>
-                        <span class="text-stagger-hover" data-slide-index="1" onclick="showDetailPage('surge')">Surge</span>
-                        <span class="text-stagger-hover" data-slide-index="2" onclick="showDetailPage('vui-case-study')">VUI Case Study</span>
+                        <div class="project-link-block">
+                            <div class="project-title-row">
+                                <button type="button" class="text-stagger-hover" data-slide-index="0" aria-label="Open Apple Music Case Study" onclick="showDetailPage('apple-music')">Apple Music Case Study</button>
+                                <button type="button" class="project-case-study" onclick="showDetailPage('apple-music')">View full case study →</button>
+                            </div>
+                        </div>
+                        <div class="project-link-block">
+                            <div class="project-title-row">
+                                <button type="button" class="text-stagger-hover" data-slide-index="1" aria-label="Open Surge case study" onclick="showDetailPage('surge')">Surge</button>
+                                <button type="button" class="project-case-study" onclick="showDetailPage('surge')">View full case study →</button>
+                            </div>
+                        </div>
+                        <div class="project-link-block">
+                            <div class="project-title-row">
+                                <button type="button" class="text-stagger-hover" data-slide-index="2" aria-label="Open VUI Case Study" onclick="showDetailPage('vui-case-study')">VUI Case Study</button>
+                                <button type="button" class="project-case-study" onclick="showDetailPage('vui-case-study')">View full case study →</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="hover-slider-image-wrap">
-                        <img class="hover-slider-image" data-slide-index="0" src="assets/AppleMusic.png" alt="Apple Music Case Study">
-                        <img class="hover-slider-image" data-slide-index="1" src="assets/surge11.png" alt="Surge">
-                        <img class="hover-slider-image" data-slide-index="2" src="assets/Vui.png" alt="VUI Case Study">
+                    <div>
+                        <div class="hover-slider-image-wrap">
+                            <img class="hover-slider-image" data-slide-index="0" src="assets/AppleMusic.webp" alt="Apple Music Case Study">
+                            <img class="hover-slider-image" data-slide-index="1" src="assets/Surge_Case_Study.png" alt="Surge">
+                            <img class="hover-slider-image" data-slide-index="2" src="assets/Vui.webp" alt="VUI Case Study">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1423,7 +1564,7 @@
 
     <div id="detail-page">
         <div class="container">
-            <div class="back-btn" onclick="showHomePage()">
+            <div class="back-btn" onclick="showHomePage('#projects')">
                 ← Back to Home
             </div>
             <div id="detail-content-area">
@@ -1484,34 +1625,39 @@
         const sliderHovers = document.querySelectorAll('.text-stagger-hover');
         const sliderImages = document.querySelectorAll('.hover-slider-image');
 
+        const projectIds = ['apple-music', 'surge', 'vui-case-study'];
+        const projectBlocks = document.querySelectorAll('.project-link-block');
+
         function updateSlider(index) {
             sliderHovers.forEach(h => h.classList.remove('active'));
             sliderImages.forEach(img => img.classList.remove('active'));
-            
+            projectBlocks.forEach(block => block.classList.remove('active'));
+
             sliderHovers[index].classList.add('active');
             sliderImages[index].classList.add('active');
+            projectBlocks[index].classList.add('active');
         }
 
         sliderHovers.forEach((hover, idx) => {
             hover.addEventListener('mouseenter', () => updateSlider(idx));
-            
+
             // Text Stagger Effect
             const text = hover.textContent;
             hover.innerHTML = '';
             [...text].forEach((char, i) => {
                 const wrapper = document.createElement('span');
                 wrapper.className = 'text-stagger-char-wrapper';
-                
+
                 const top = document.createElement('span');
                 top.className = 'text-stagger-char-top';
                 top.textContent = char === ' ' ? '\u00A0' : char;
                 top.style.transitionDelay = `${i * 0.02}s`;
-                
+
                 const bottom = document.createElement('span');
                 bottom.className = 'text-stagger-char-bottom';
                 bottom.textContent = char === ' ' ? '\u00A0' : char;
                 bottom.style.transitionDelay = `${i * 0.02}s`;
-                
+
                 wrapper.appendChild(top);
                 wrapper.appendChild(bottom);
                 hover.appendChild(wrapper);
