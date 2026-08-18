@@ -1241,6 +1241,14 @@
             transform:translateY(-2px);
         }
 
+
+        /* Extended Apple Music case-study link */
+        .ui-project-desc .extended-case-study-note { display:inline-block; margin-top:12px; }
+        .ui-project-desc .case-study-external-link {
+            color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:2px;
+        }
+        .ui-project-desc .case-study-external-link:hover { color:var(--text); border-bottom-color:var(--text); }
+
     </style>
 </head>
 <body>
@@ -1712,18 +1720,25 @@
 
         // --- PROJECT DATA & NAVIGATION ---
         const projectData = {
-            'apple-music': {
-                title: 'Apple Music Case Study',
-                category: 'UI/UX Analysis · Redesign',
-              
-                description: 'A deep dive into the user experience of Apple Music and potential areas for improvement.',
-                
-                images: ['assets/Apple_Music_Condensed.png'],
-                sections: [
-                    { title: 'Overview', content: 'A focused review of Apple Music’s interaction patterns, navigation, and opportunities for a clearer listening experience.' }
-                ],
-                pdf: ''
-            },
+    'apple-music': {
+        title: 'Apple Music Case Study',
+        category: 'UI/UX Analysis · Redesign',
+
+        description: 'A deep dive into the user experience of Apple Music and potential areas for improvement.<br><span class="extended-case-study-note">To view the full extended case study with all the research details, <a class="case-study-external-link" href="https://www.behance.net/gallery/254167413/Apple-Music-Case-Study" target="_blank" rel="noopener noreferrer">use this link →</a></span>',
+
+        images: ['assets/Apple_Music_Condensed.png'],
+
+        sections: [
+            {
+                title: 'Overview',
+                content: 'A focused review of Apple Music’s interaction patterns, navigation, and opportunities for a clearer listening experience.'
+            }
+        ],
+
+        pdf: ''
+    }
+
+            ,
             'surge': {
                 title: 'Surge',
                 category: 'Project · UI/UX · Web Design',
