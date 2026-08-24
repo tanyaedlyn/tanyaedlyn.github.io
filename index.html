@@ -14,8 +14,8 @@
       portfolio/
       ├── index.html
       └── assets/
-          ├── AppleMusic.webp
-          ├── Vui.webp
+          ├── AppleMusic.png
+          ├── Vui.png
           ├── Apple_Music_Condensed.png
           ├── Surge_Case_Study.png
           ├── vui_case_study.png
@@ -1422,6 +1422,14 @@
             #identity .photo-intro > .body-text { max-width:none; width:100%; justify-self:stretch; text-align:left; }
         }
 
+
+        /* ─── KINDRED PROJECT PREVIEW ─── */
+        #projects .hover-slider-image[src*="Kindred_Namecard"] { object-fit:contain; object-position:center; background:#f5f0e6; }
+        #projects .hover-slider-image[src*="Kindred_Namecard"] { padding:clamp(.35rem,1.2vw,1rem); }
+        @media (max-width:768px) {
+            #projects .hover-slider-image[src*="Kindred_Namecard"] { padding:.35rem; }
+        }
+
     </style>
 </head>
 <body>
@@ -1579,13 +1587,19 @@
                         </div>
                         <div class="project-link-block">
                             <div class="project-title-row">
-                                <button type="button" class="text-stagger-hover" data-slide-index="1" aria-label="Open Surge case study" onclick="showDetailPage('surge')">Surge</button>
+                                <button type="button" class="text-stagger-hover" data-slide-index="1" aria-label="Open Kindred" onclick="showDetailPage('kindred')">Kindred</button>
+                                <button type="button" class="project-case-study" onclick="showDetailPage('kindred')">View full case study →</button>
+                            </div>
+                        </div>
+                        <div class="project-link-block">
+                            <div class="project-title-row">
+                                <button type="button" class="text-stagger-hover" data-slide-index="2" aria-label="Open Surge case study" onclick="showDetailPage('surge')">Surge</button>
                                 <button type="button" class="project-case-study" onclick="showDetailPage('surge')">View full case study →</button>
                             </div>
                         </div>
                         <div class="project-link-block">
                             <div class="project-title-row">
-                                <button type="button" class="text-stagger-hover" data-slide-index="2" aria-label="Open VUI Case Study" onclick="showDetailPage('vui-case-study')">VUI Case Study</button>
+                                <button type="button" class="text-stagger-hover" data-slide-index="3" aria-label="Open VUI Case Study" onclick="showDetailPage('vui-case-study')">VUI Case Study</button>
                                 <button type="button" class="project-case-study" onclick="showDetailPage('vui-case-study')">View full case study →</button>
                             </div>
                         </div>
@@ -1593,8 +1607,9 @@
                     <div>
                         <div class="hover-slider-image-wrap">
                             <img class="hover-slider-image" data-slide-index="0" src="assets/AppleMusic.png" alt="Apple Music Case Study">
-                            <img class="hover-slider-image" data-slide-index="1" src="assets/surge11.png" alt="Surge">
-                            <img class="hover-slider-image" data-slide-index="2" src="assets/Vui.png" alt="VUI Case Study">
+                            <img class="hover-slider-image" data-slide-index="1" src="assets/Kindred_Namecard.png" alt="Kindred - Travel, One Story at a Time">
+                            <img class="hover-slider-image" data-slide-index="2" src="assets/surge11.png" alt="Surge">
+                            <img class="hover-slider-image" data-slide-index="3" src="assets/Vui.png" alt="VUI Case Study">
                         </div>
                     </div>
                 </div>
@@ -1807,7 +1822,7 @@
         const sliderHovers = document.querySelectorAll('.text-stagger-hover');
         const sliderImages = document.querySelectorAll('.hover-slider-image');
 
-        const projectIds = ['apple-music', 'surge', 'vui-case-study'];
+        const projectIds = ['apple-music', 'kindred', 'surge', 'vui-case-study'];
         const projectBlocks = document.querySelectorAll('.project-link-block');
 
         function updateSlider(index) {
@@ -1911,6 +1926,18 @@
     }
 
             ,
+
+            'kindred': {
+                title: 'Kindred',
+                category: 'Product Design · UX Research',
+                
+                description: 'A two-sided mobile app connecting local City Lovers with travelers — no AI curation, no ranked lists, just three spots and a story.',
+                images: ['assets/Kindredd.png'],
+                sections: [
+                    { title: 'Overview', content: 'Kindred is a self-initiated travel discovery concept built around a simple constraint: every City Lover shares exactly three spots, each with a short story. Travelers discover places through people whose reasons feel like theirs, rather than through a popularity-ranked feed.' },]
+                  
+                
+            },
             'surge': {
                 title: 'Surge',
                 category: 'Project · UI/UX · Web Design',
