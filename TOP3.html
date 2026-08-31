@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M.Des Stipend & Top 3 IxD / HCI Target Dashboard</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --success: #16a34a;
+      --warning: #ea580c;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; padding-bottom: 50px; }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 35px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    header h1 { font-size: 2rem; margin-bottom: 8px; font-weight: 700; }
+    header p { font-size: 1.05rem; opacity: 0.9; max-width: 750px; margin: 0 auto 15px auto; }
+    
+    .tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .tag { background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; }
+
+    nav {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    nav button.active, nav button:hover {
+      color: var(--accent);
+      background-color: #eff6ff;
+    }
+
+    .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .section-title { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 4px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 30px; }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .card h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+
+    .badge-rank { background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+
+    ul.bullets { list-style: none; padding-left: 0; }
+    ul.bullets li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    ul.bullets li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.2rem;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+
+    .banner {
+      background: #eff6ff;
+      border-left: 4px solid var(--accent);
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { background-color: var(--primary); color: white; font-weight: 600; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>M.Des Stipend Rules & Top 3 IxD Target Dashboard</h1>
+    <p>Tailored specifically for B.Tech CSE (6.8 CGPA) targeting Interaction Design & HCI</p>
+    <div class="tags">
+      <span class="tag">Interaction Design (IxD)</span>
+      <span class="tag">Human-Centered Interaction (HCI)</span>
+      <span class="tag">UI / UX Specialization</span>
+    </div>
+  </header>
+
+  <nav>
+    <button onclick="switchTab('top3')" class="active">Top 3 Curated Colleges</button>
+    <button onclick="switchTab('stipend')">Stipend Mechanics & Rules</button>
+    <button onclick="switchTab('comparison')">Side-by-Side Comparison</button>
+  </nav>
+
+  <div class="container">
+
+    <!-- TAB 1: TOP 3 OPTIONS -->
+    <div id="top3" class="tab-content active">
+      <h2 class="section-title">Top 3 Recommended Colleges for IxD / HCI / UI-UX</h2>
+      <div class="banner">
+        <strong>Curated Strategy:</strong> These three institutions represent the absolute best combination of Interaction Design curriculum depth, recruiting prestige, and technological integration for a Computer Science graduate.
+      </div>
+
+      <div class="grid">
+        <!-- OPTION 1 -->
+        <div class="card">
+          <h3>1. IDC, IIT Bombay <span class="badge-rank">Rank #1 Target</span></h3>
+          <ul class="bullets">
+            <li><strong>Degree:</strong> M.Des in Interaction Design (IxD).</li>
+            <li><strong>Why it's #1:</strong> The premier institute for combining Computer Science with Interaction Design. Highly respected by big-tech design teams.</li>
+            <li><strong>Curriculum Focus:</strong> Digital product systems, user research, interactive media, software ergonomics, and AI interface design.</li>
+            <li><strong>Total Fees:</strong> ~₹1.24 Lakhs (2 Years total).</li>
+            <li><strong>Stipend Status:</strong> <span style="color:var(--success); font-weight:bold;">Eligible for ₹12,400/month MoE Stipend</span> (Net cost near ₹0).</li>
+            <li><strong>Admission Route:</strong> CEED Score → IDC Written Design Test → Personal Interview & Portfolio.</li>
+          </ul>
+        </div>
+
+        <!-- OPTION 2 -->
+        <div class="card">
+          <h3>2. NID Bengaluru <span class="badge-rank">Rank #2 Target</span></h3>
+          <ul class="bullets">
+            <li><strong>Degree:</strong> M.Des in Interaction Design (IxD) / Information Design.</li>
+            <li><strong>Why it's #2:</strong> India's standalone premier design institution with a dedicated campus for Interaction Design right in India's startup capital.</li>
+            <li><strong>Curriculum Focus:</strong> Pure human-centered design, user research methodologies, physical-digital touchpoints, and digital experience design.</li>
+            <li><strong>Total Fees:</strong> ~₹15.0L – ₹18.0L total (Tuition + Off-campus PG living).</li>
+            <li><strong>Stipend Status:</strong> <span style="color:var(--warning); font-weight:bold;">No MoE Stipend</span> (NID is under Ministry of Commerce).</li>
+            <li><strong>Admission Route:</strong> NID DAT Prelims → DAT Mains Studio Test (40%) + Personal Interview (60%).</li>
+          </ul>
+        </div>
+
+        <!-- OPTION 3 -->
+        <div class="card">
+          <h3>3. IISc Bangalore (CPDM) <span class="badge-rank">Rank #3 Target</span></h3>
+          <ul class="bullets">
+            <li><strong>Degree:</strong> M.Des in Product Design & Engineering (HCI Focus).</li>
+            <li><strong>Why it's #3:</strong> Ideal for research-led HCI, intelligent interfaces, and technology-design integration (Alternative: IIIT-Delhi HCD).</li>
+            <li><strong>Curriculum Focus:</strong> Human-Computer Interaction, physical/digital ergonomics, smart systems, and usability engineering.</li>
+            <li><strong>Total Fees:</strong> ~₹56,600 total (2 Years).</li>
+            <li><strong>Stipend Status:</strong> <span style="color:var(--success); font-weight:bold;">Eligible for ₹12,400/month MoE Stipend</span>.</li>
+            <li><strong>Admission Route:</strong> CEED or GATE score → IISc Design Aptitude Test & Interview.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: STIPEND MECHANICS -->
+    <div id="stipend" class="tab-content">
+      <h2 class="section-title">How the MoE Teaching Assistantship (TA) Stipend Works</h2>
+      
+      <div class="grid">
+        <div class="card">
+          <h3>1. Payout & Total Financial Value</h3>
+          <ul class="bullets">
+            <li><strong>Monthly Stipend:</strong> <strong>₹12,400 per month</strong> paid directly to your account.</li>
+            <li><strong>Duration:</strong> Paid for 24 months (2 full academic years).</li>
+            <li><strong>Total Financial Payout:</strong> <strong>₹2,97,600 total stipend</strong> received across the degree.</li>
+            <li><strong>Financial Impact:</strong> Fully covers total tuition fees and living expenses at IITs and IISc.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>2. Eligibility & Requirements</h3>
+          <ul class="bullets">
+            <li><strong>Qualified Institutions:</strong> Central Govt Technical Institutes only (IIT Bombay, IIT Delhi, IIT Guwahati, IIT Hyderabad, IISc).</li>
+            <li><strong>Entry Category:</strong> Must be admitted under the <strong>Regular / Teaching Assistantship (TA)</strong> category via CEED/GATE.</li>
+            <li><strong>Weekly Duties:</strong> Must perform <strong>8 to 10 hours per week</strong> of TA work (grading labs, helping professors, invigilating exams).</li>
+            <li><strong>Academic Condition:</strong> Must maintain a minimum semester GPA (typically <strong>6.0 / 10.0</strong> or above).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>3. Who does NOT get the Stipend?</h3>
+          <ul class="bullets">
+            <li><strong>NID Students:</strong> NIDs operate under the Ministry of Commerce & Industry, not Ministry of Education. <strong>Zero MoE stipend provided.</strong></li>
+            <li><strong>Private Universities:</strong> MIT-ID Pune, Srishti, Symbiosis offer <strong>no MoE stipends</strong>.</li>
+            <li><strong>Sponsored / Self-Financed Candidates:</strong> Candidates admitted under industry-sponsored seats at IITs do not qualify for TA stipends.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: COMPARISON -->
+    <div id="comparison" class="tab-content">
+      <h2 class="section-title">Side-by-Side Comparison Matrix</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>IDC, IIT Bombay</th>
+            <th>NID Bengaluru</th>
+            <th>IISc Bangalore</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Degree Name</strong></td>
+            <td>M.Des in Interaction Design</td>
+            <td>M.Des in Interaction Design</td>
+            <td>M.Des in Product Design & Engg (HCI)</td>
+          </tr>
+          <tr>
+            <td><strong>Duration</strong></td>
+            <td>2 Years</td>
+            <td>2.5 Years</td>
+            <td>2 Years</td>
+          </tr>
+          <tr>
+            <td><strong>Entrance Exam</strong></td>
+            <td>CEED 2027</td>
+            <td>NID DAT 2027</td>
+            <td>CEED 2027 or GATE</td>
+          </tr>
+          <tr>
+            <td><strong>Total Fee (2 Yrs)</strong></td>
+            <td>~₹1.24 Lakhs</td>
+            <td>~₹11.3L – ₹13.3L</td>
+            <td>~₹56,600</td>
+          </tr>
+          <tr>
+            <td><strong>Hostel & Living</strong></td>
+            <td>On-campus (~₹1.6L - ₹2.0L)</td>
+            <td>Off-campus PG (~₹3.5L - ₹5.0L)</td>
+            <td>On-campus (~₹1.5L - ₹2.0L)</td>
+          </tr>
+          <tr>
+            <td><strong>MoE Stipend</strong></td>
+            <td><strong style="color:var(--success);">YES (₹12,400 / mo)</strong></td>
+            <td><strong style="color:var(--warning);">NO</strong></td>
+            <td><strong style="color:var(--success);">YES (₹12,400 / mo)</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Net Cost to Student</strong></td>
+            <td><strong>Near ₹0</strong> (Stipend > Fees)</td>
+            <td><strong>₹15L – ₹18L Out-of-pocket</strong></td>
+            <td><strong>Near ₹0</strong> (Stipend > Fees)</td>
+          </tr>
+          <tr>
+            <td><strong>CS Background Synergy</strong></td>
+            <td>Exceptional (Tech Product UX)</td>
+            <td>High (Pure Design & Research)</td>
+            <td>Exceptional (HCI & Smart Systems)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('nav button');
+      buttons.forEach(button => button.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
